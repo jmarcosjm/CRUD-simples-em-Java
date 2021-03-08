@@ -41,10 +41,6 @@ public class Livro implements Registro{
         this.preco = preco;
     }
 
-    public void setDf(DecimalFormat df) {
-        this.df = df;
-    }
-
     public int getID() {
         return ID;
     }
@@ -61,10 +57,6 @@ public class Livro implements Registro{
         return preco;
     }
 
-    public DecimalFormat getDf() {
-        return df;
-    }
-
     @Override
     public String toString() {
         return "\nID: " + ID +
@@ -73,7 +65,7 @@ public class Livro implements Registro{
                 "\nPreço: R$ " + df.format(preco) + "\n\n";
     }
 
-    public byte[] toByteArray() throws Exception
+    public byte[] toByteArray() throws Exception // Retorna um array de bytes contendo o objeto corrente
     {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         DataOutputStream dos = new DataOutputStream(baos);
@@ -86,7 +78,7 @@ public class Livro implements Registro{
         return baos.toByteArray();
     }
 
-    public void fromByteArray(byte[] ba) throws Exception
+    public void fromByteArray(byte[] ba) throws Exception // Recebe um array de bytes e atribui os valores do registro ao objeto corrente
     {
         ByteArrayInputStream bais = new ByteArrayInputStream(ba);
         DataInputStream dis = new DataInputStream(bais);
